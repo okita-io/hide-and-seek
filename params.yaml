@@ -1,0 +1,51 @@
+# World generator parameters (Task 1).
+# These are the curriculum knobs: early training can use fewer/larger rooms,
+# wider corridors, more loops and a shorter exit distance; later stages
+# invert those settings. Lighting/sound knobs are listed for later tasks
+# but are unused by this generator.
+
+grid_size: 32
+tile_size: 16
+
+large_rooms_min: 2
+large_rooms_max: 3
+large_room_min_size: 6
+large_room_max_size: 10
+
+small_rooms_min: 5
+small_rooms_max: 8
+small_room_min_size: 3
+small_room_max_size: 5
+
+corridor_width_min: 1
+corridor_width_max: 2
+
+# Extra room-to-room connections after the MST (each adds a loop).
+extra_connections_min: 3
+extra_connections_max: 5
+
+min_loops: 3
+max_chokepoints: 1
+
+open_floor_min: 0.35
+open_floor_max: 0.55
+
+# Path length, in tiles, as a fraction of the map diagonal (32 * sqrt(2)).
+exit_distance_frac: 0.60
+monster_runner_distance_frac: 0.40
+monster_exit_distance_frac: 0.20
+
+lamp_count_min: 6
+lamp_count_max: 12
+lamp_min_spacing: 6
+# Try to keep one socket near the exit as a future faint beacon.
+exit_lamp: true
+
+# Fraction of room-interior cells that WFC may collapse to solid cover.
+prop_density: 0.07
+debris_density: 0.03
+
+# Internal reject-and-regenerate limits (same seed stays deterministic).
+max_layout_attempts: 80
+max_wfc_attempts: 8
+max_generate_attempts: 250
